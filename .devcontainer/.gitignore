@@ -1,0 +1,10 @@
+# Local environment files
+.env
+
+# VS Code workspace settings
+.vscode/*
+!.vscode/extensions.json
+
+# Temporary files
+*.log
+*.tmp

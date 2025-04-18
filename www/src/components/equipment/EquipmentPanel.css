@@ -1,0 +1,149 @@
+.equipment-panel {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.equipment-panel h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.equipment-panel h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.equipment-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.equipment-slot {
+  background-color: white;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid #e8e8e8;
+  position: relative;
+}
+
+.equipment-slot:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.equipment-slot.active {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.equipment-slot.empty {
+  background-color: #fafafa;
+}
+
+.slot-type {
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.equipment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.equipment-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.equipment-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.equipment-stat {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.empty-slot {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.remove-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 8px;
+  align-self: flex-end;
+}
+
+.remove-button:hover {
+  background-color: #ff7875;
+}
+
+.equipment-stats-summary {
+  background-color: #e6f7ff;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-left: 4px solid #1890ff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label {
+  font-weight: bold;
+  color: #666;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.equipment-selection {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px dashed #d9d9d9;
+}
+
+.equipment-selection p {
+  color: #999;
+  font-style: italic;
+  margin: 8px 0 0;
+}

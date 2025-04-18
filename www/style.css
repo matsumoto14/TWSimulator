@@ -1,0 +1,685 @@
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #6b8cae;
+  --accent-color: #ff9800;
+  --background-color: #f5f7fa;
+  --text-color: #333;
+  --border-color: #ddd;
+  --success-color: #4caf50;
+  --error-color: #f44336;
+  --element-fire: #ff5722;
+  --element-water: #2196f3;
+  --element-wind: #8bc34a;
+  --element-earth: #795548;
+  --element-light: #ffeb3b;
+  --element-dark: #673ab7;
+  --element-none: #9e9e9e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans JP', 'Meiryo', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* アプリケーションコンテナ */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+main {
+  margin-bottom: 2rem;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* 画像アップロード */
+.image-upload-container {
+  margin-bottom: 2rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-upload-container h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.upload-area {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+.upload-area.dragging {
+  border-color: var(--primary-color);
+  background-color: rgba(74, 111, 165, 0.1);
+}
+
+.upload-area.processing {
+  border-color: var(--secondary-color);
+  background-color: rgba(74, 111, 165, 0.05);
+  cursor: wait;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.upload-text {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.upload-subtext {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.upload-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.upload-button input[type="file"] {
+  display: none;
+}
+
+.processing-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(74, 111, 165, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.upload-instructions {
+  background-color: #f0f4f8;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.upload-instructions h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.upload-instructions ol {
+  padding-left: 1.5rem;
+}
+
+.upload-instructions li {
+  margin-bottom: 0.5rem;
+}
+
+/* 装備パネル */
+.equipment-panel {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.equipment-panel h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.equipment-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 120px;
+}
+
+.stat-label {
+  font-weight: bold;
+  color: #555;
+  margin-right: 0.5rem;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.equipment-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.equipment-slot {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.equipment-slot.has-item {
+  background-color: #f0f4f8;
+  border-color: var(--secondary-color);
+}
+
+.slot-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.equipment-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.equipment-stats {
+  margin-bottom: 1rem;
+}
+
+.equipment-stat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.equipment-options {
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.5rem;
+}
+
+.options-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.options-list {
+  list-style: none;
+}
+
+.option-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.option-name {
+  color: #555;
+}
+
+.option-value {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.empty-slot {
+  color: #999;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.element-info {
+  margin-top: 1rem;
+}
+
+.element-info h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.element-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.element-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #f0f4f8;
+}
+
+.element-fire { background-color: rgba(255, 87, 34, 0.1); }
+.element-water { background-color: rgba(33, 150, 243, 0.1); }
+.element-wind { background-color: rgba(139, 195, 74, 0.1); }
+.element-earth { background-color: rgba(121, 85, 72, 0.1); }
+.element-light { background-color: rgba(255, 235, 59, 0.1); }
+.element-dark { background-color: rgba(103, 58, 183, 0.1); }
+.element-none { background-color: rgba(158, 158, 158, 0.1); }
+
+.element-label {
+  font-weight: bold;
+}
+
+.element-value {
+  font-weight: bold;
+}
+
+/* モンスターパネル */
+.monster-panel {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.monster-panel h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.monster-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-weight: bold;
+  color: #555;
+}
+
+.filter-group input, .filter-group select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.filter-group input[type="number"] {
+  width: 70px;
+}
+
+.monster-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.monster-item {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.monster-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.monster-item.selected {
+  border-color: var(--primary-color);
+  background-color: rgba(74, 111, 165, 0.1);
+}
+
+.monster-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.monster-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.monster-level {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.monster-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.monster-stat {
+  font-size: 0.9rem;
+}
+
+.monster-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.5rem;
+}
+
+.selected-count {
+  text-align: right;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.no-monsters {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #999;
+}
+
+/* ダメージ結果 */
+.damage-result {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.damage-result h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.result-item {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+}
+
+.monster-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.monster-info > div {
+  flex: 1;
+  min-width: 100px;
+}
+
+.monster-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.damage-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.damage-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f0f4f8;
+  border-radius: 4px;
+}
+
+.damage-stat.highlight {
+  background-color: rgba(74, 111, 165, 0.2);
+  font-weight: bold;
+}
+
+.damage-chart {
+  margin-bottom: 1.5rem;
+}
+
+.chart-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.chart-bar {
+  display: flex;
+  height: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.bar-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+  transition: width 0.3s ease;
+}
+
+.bar-segment.normal {
+  background-color: var(--secondary-color);
+}
+
+.bar-segment.critical {
+  background-color: var(--accent-color);
+}
+
+.chart-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.damage-efficiency {
+  background-color: #f0f4f8;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.efficiency-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.efficiency-value {
+  margin-bottom: 0.3rem;
+}
+
+.time-to-kill {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* アクション */
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* エラーメッセージ */
+.error-message {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--error-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+  max-width: 80%;
+}
+
+.error-message p {
+  flex: 1;
+}
+
+.error-message button {
+  background-color: white;
+  color: var(--error-color);
+  padding: 0.5rem 1rem;
+}
+
+/* フッター */
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  
+  .equipment-slots, .monster-list, .damage-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .monster-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .element-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

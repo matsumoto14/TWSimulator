@@ -1,0 +1,127 @@
+.damage-result {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.damage-result h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.damage-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: #e9e9e9;
+  border-radius: 4px;
+}
+
+.damage-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-label {
+  font-weight: bold;
+  color: #666;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.damage-results-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.damage-result-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  transition: transform 0.2s ease;
+}
+
+.damage-result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.monster-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.monster-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.monster-level {
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.damage-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.damage-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.damage-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.damage-value {
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.no-monsters {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-style: italic;
+  background-color: #fafafa;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.damage-notes {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 16px;
+}
+
+.damage-notes p {
+  margin: 4px 0;
+}

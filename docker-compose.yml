@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  twsimulator:
+    container_name: twsimulator
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    tty: true

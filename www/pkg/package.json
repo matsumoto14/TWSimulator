@@ -1,0 +1,19 @@
+{
+  "name": "twsimulator",
+  "type": "module",
+  "collaborators": [
+    "TW Simulator Team"
+  ],
+  "description": "TalesWeaver damage calculation simulator",
+  "version": "0.1.0",
+  "files": [
+    "twsimulator_bg.wasm",
+    "twsimulator.js",
+    "twsimulator.d.ts"
+  ],
+  "main": "twsimulator.js",
+  "types": "twsimulator.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

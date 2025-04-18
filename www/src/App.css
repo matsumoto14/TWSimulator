@@ -1,0 +1,170 @@
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em;
+}
+
+.damage-results-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.damage-result-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  transition: transform 0.2s ease;
+}
+
+.damage-result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.monster-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.monster-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.monster-level {
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.damage-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.damage-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.damage-item.highlight .damage-value {
+  color: #f5222d;
+  font-size: 1.1rem;
+}
+
+.damage-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.damage-value {
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.input-group {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.input-group label {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.result {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #e6f7ff;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.error {
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #ffebee;
+  border-radius: 4px;
+  color: #d32f2f;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: #1a1a1a;
+  }
+
+  .result {
+    background-color: #003a8c;
+  }
+
+  .error {
+    background-color: #5c0011;
+    color: #ff8a80;
+  }
+}
